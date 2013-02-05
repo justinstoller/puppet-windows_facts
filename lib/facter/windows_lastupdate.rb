@@ -2,7 +2,7 @@ Facter.add( :last_update ) do
   confine :kernel => "windows"
   setcode do
     output = Facter::Util::Resolution.exec(
-      '@powershell reg query \'HKLM\SOFTWARE\Microsoft\Windows' +
+      'reg query \'HKLM\SOFTWARE\Microsoft\Windows' +
       '\CurrentVersion\WindowsUpdate\Auto Update\Results\Install\'' +
       ' /v LastSuccessTime'
     ).strip
